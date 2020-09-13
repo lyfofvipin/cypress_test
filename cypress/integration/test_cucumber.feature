@@ -1,11 +1,11 @@
-Feature: The Twitter
+Feature: The GitHub
  
-  Test the login Feature of RHCERT
+  Test the login Feature of GitHub
   
-  Scenario: I Login to RHCERT WUI
-    Given I open the RHCERT WUI
+  Scenario: I Login to GitHub
+    Given I open GitHub login page
     When I enter username
-    # And I enter password
-    # And I Click on Login button
-    # Then I should be able to login
+    And I enter password
+    And I Click on Login button
+    Then I am able to login
     

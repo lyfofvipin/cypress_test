@@ -1,23 +1,21 @@
 const { cyan } = require("color-name")
-import { Given } from "cypress-cucumber-preprocessor/steps";
-import { Then } from "cypress-cucumber-preprocessor/steps";
 
-Given("I open the RHCERT WUI", () => {
-    cy.visit("http://10.65.211.20/login")
+Given("I open GitHub login page", () => {
+    cy.visit("https://github.com/login")
 })
 
 And("I enter username", () =>{
-    cy.get(".pf-login-username-id").type("cert_ops_qe")
+    cy.xpath("//input[@id='login_field']").type("your_username")
 });
 
 Then("I enter password", () =>{
-    cy.get(".pf-login-password-id").type("redhat")
+    cy.xpath("//input[@id='password']").type("your_password")
 });
 
-Then("I enter password", () =>{
-    cy.get(".pf-login-password-id").type("redhat")
+Then("I Click on Login button", () =>{
+    cy.xpath("//input[@type='submit']").click()
 });
 
-// Given("I Click on Login button", () =>{
-//     cy.get(".pf-login-password-id").click()
-// });
+Given("I am able to login", () =>{
+    cy.xpath("//img[@alt='@your_username']").should('be.visible')
+});
